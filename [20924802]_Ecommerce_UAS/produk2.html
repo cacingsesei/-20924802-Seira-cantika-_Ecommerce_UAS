@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - Buket Bunga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+  function tambahKeKeranjang() {
+    const produk = {
+      nama: "Buket Bunga",
+      harga: 150000,
+      gambar: "image/buket bunga.jpg",
+      jumlah: 1
+    };
+
+  
+    let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+    const index = keranjang.findIndex(item => item.nama === produk.nama);
+    if (index !== -1) {
+      keranjang[index].jumlah += 1;
+    } else {
+      keranjang.push(produk);
+    }
+
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+    alert("Produk telah ditambahkan ke keranjang!");
+  }
+</script>
+<body>
+
+  <header>
+    <h1>Sweet Florist Bouquet</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="homeproduk.html">Produk</a>
+      <a href="keranjang.html">Keranjang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-produk">
+    <img src="image/buket bunga.jpg" alt="Buket Bunga">
+    <h2>Buket Bunga</h2>
+    <p>Harga: Rp 150.000</p>
+
+    <p>
+      Buket Bunga klasik ini merupakan pilihan sempurna untuk menyampaikan cinta, ucapan selamat, atau sekadar memberi kebahagiaan pada hari spesial.
+      Dirangkai dengan bunga-bunga artifisial dan dried flower berkualitas tinggi seperti mawar, lily, Edelweis, peony dan baby’s breath, buket ini tampil elegan dan menawan.
+    </p>
+    <p>
+      Setiap tangkai bunga disusun secara profesional dan dibalut dengan wrapping kertas Korea berwarna pastel yang lembut, memberikan sentuhan mewah namun tetap sederhana.
+      Cocok diberikan untuk momen ulang tahun, wisuda, anniversary, atau sekadar ucapan “aku peduli”.
+    </p>
+    <p>
+      Jadikan hari mereka lebih berkesan dengan keindahan buket yang tak hanya indah dipandang, tetapi juga menyentuh hati.
+    </p>
+
+    <h3>Spesifikasi Produk</h3>
+    <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+      <li>Isi: Kombinasi bunga mawar, lily, dan baby’s breath (artifisial atau segar)</li>
+      <li>Ukuran: ±70 x 50cm</li>
+      <li>Warna: Pastel pink & cream</li>
+      <li>Kemasan: Wrapping Korea + pita satin</li>
+    </ul>
+
+    <br>
+    <button onclick="tambahKeKeranjang()">Beli</button>
+  </main>
+
+  <footer>
+    <p>Kontak kami: sweetfloristbouqet@gmail.com | 0813-1391-4762 | Jl. Melong raya no 60, Cimahi</p>
+  </footer>
+
+</body>
+</html>

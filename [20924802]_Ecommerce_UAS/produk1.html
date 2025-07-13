@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - Buket Coklat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+  function tambahKeKeranjang() {
+    const produk = {
+      nama: "Buket Coklat",
+      harga: 100000,
+      gambar: "image/buket coklat.jpg",
+      jumlah: 1
+    };
+
+    let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+    const index = keranjang.findIndex(item => item.nama === produk.nama);
+    if (index !== -1) {
+      keranjang[index].jumlah += 1;
+    } else {
+      keranjang.push(produk);
+    }
+
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+    alert("Produk telah ditambahkan ke keranjang!");
+  }
+</script>
+
+<body>
+
+  <header>
+    <h1>Sweet Florist Bouquet</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="homeproduk.html">Produk</a>
+      <a href="keranjang.html">Keranjang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-produk">
+    <img src="image/buket coklat.jpg" alt="Buket Coklat">
+    <h2>Buket Coklat</h2>
+    <p>Harga: Rp 100.000</p>
+
+    <p>
+      Buket Coklat ini adalah pilihan sempurna untuk kamu yang ingin memberikan kejutan manis nan elegan kepada orang terkasih. 
+      Dibuat dengan perpaduan bunga hias berkualitas dan aneka coklat Ferrero Rocher yang lezat, buket ini tidak hanya memanjakan mata, 
+      tapi juga menggugah selera.
+    </p>
+    <p>
+      Setiap rangkaian dibungkus dengan kertas premium berwarna pastel dan pita satin yang anggun, cocok untuk berbagai momen spesial 
+      seperti ulang tahun, anniversary, wisuda, hingga hari kasih sayang.
+    </p>
+    <p>
+      Nikmati keindahan dan kelezatan dalam satu paket istimewa. Cocok untuk pasangan, sahabat, keluarga, atau bahkan untuk memanjakan diri sendiri!
+    </p>
+
+    <h3>Spesifikasi Produk</h3>
+    <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+      <li>Isi: 2 batang Silverqueen besar + bunga artificial</li>
+      <li>Ukuran: ±60cm x 35cm</li>
+      <li>Warna: Pink pastel dengan sentuhan gold</li>
+      <li>Kemasan: Kertas wrapping premium + pita satin</li>
+    </ul>
+
+    <br>
+    <button onclick="tambahKeKeranjang()">Beli</button>
+
+  </main>
+
+  <footer>
+    <p>Kontak kami: sweetfloristbouqet@gmail.com | 0813-1391-4762 | Jl. Melong raya no 60, Cimahi</p>
+  </footer>
+
+</body>
+</html>

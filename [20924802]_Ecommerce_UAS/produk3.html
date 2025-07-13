@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - Buket Bunga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+    function tambahKeKeranjang() {
+      const produk = {
+        nama: "Buket Snack",
+        harga: 165000,
+        gambar: "image/buket snack.jpg",
+        jumlah: 1
+      };
+  
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+  
+      const index = keranjang.findIndex(item => item.nama === produk.nama);
+      if (index !== -1) {
+        keranjang[index].jumlah += 1;
+      } else {
+        keranjang.push(produk);
+      }
+  
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  
+      alert("Produk telah ditambahkan ke keranjang!");
+    }
+  </script>
+<body>
+
+  <header>
+    <h1>Sweet Florist Bouquet</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="homeproduk.html">Produk</a>
+      <a href="keranjang.html">Keranjang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-produk">
+    <img src="image/buket snack.jpg" alt="Buket Bunga">
+    <h2>Buket Snack</h2>
+    <p>Harga: Rp 200.000</p>
+
+    <p>
+        Buket Snack adalah pilihan hadiah kekinian yang cocok untuk siapa saja dan kapan saja! Dibuat dengan berbagai pilihan snack favorit yang bisa custom. buket ini disusun dengan tampilan yang cantik dan menggoda selera.
+      </p>
+      <p>
+        Cocok untuk hadiah ulang tahun, kejutan sahabat, anniversary, atau sekadar bentuk perhatian manis. Buket ini tidak hanya enak untuk dinikmati, tapi juga Instagramable untuk difoto!
+      </p>
+      <p>
+        Dengan balutan wrapping kertas premium dan sentuhan dekorasi pita warna-warni, Buket Snack kami hadir dalam berbagai tema sesuai permintaan — bisa request warna, isi, dan ukuran!
+      </p>
+      
+
+    <h3>Spesifikasi Produk</h3>
+    <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <li>Isi: 6–10 snack campuran (bisa request)</li>
+        <li>Ukuran: ±70cm x 55cm</li>
+        <li>Snack bisa termasuk: Coklat cadburry besar 3pcs, pocky box 2 pcs, yupi calci bean 2pcs, beng-beng dan snack lainnya</li>
+        <li>Wrapping: Kertas premium + pita satin dekoratif</li>
+        <li>Warna tema: Bisa request (merah, biru, pastel, ungu, dll.)</li>
+    </ul>
+
+    <br>
+    <button onclick="tambahKeKeranjang()">Beli</button>
+  </main>
+
+  <footer>
+    <p>Kontak kami: sweetfloristbouqet@gmail.com | 0813-1391-4762 | Jl. Melong raya no 60, Cimahi</p>
+  </footer>
+
+</body>
+</html>

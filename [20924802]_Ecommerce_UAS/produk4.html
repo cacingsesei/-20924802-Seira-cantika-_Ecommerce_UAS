@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - Buket Bunga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+    function tambahKeKeranjang() {
+      const produk = {
+        nama: "Buket Wisuda",
+        harga: 165000,
+        gambar: "image/buket wisuda.jpg",
+        jumlah: 1
+      };
+  
+
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+  
+
+      const index = keranjang.findIndex(item => item.nama === produk.nama);
+      if (index !== -1) {
+        keranjang[index].jumlah += 1;
+      } else {
+        keranjang.push(produk);
+      }
+  
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  
+      alert("Produk telah ditambahkan ke keranjang!");
+    }
+  </script>
+<body>
+
+  <header>
+    <h1>Sweet Florist Bouquet</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="homeproduk.html">Produk</a>
+      <a href="keranjang.html">Keranjang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-produk">
+    <img src="image/buket wisuda.jpg" alt="Buket Bunga">
+    <h2>Buket Wisuda</h2>
+    <p>Harga: Rp 165.000</p>
+
+    <p>
+        Rayakan momen kelulusan yang penuh kebanggaan dengan <strong>Buket Wisuda eksklusif</strong> dari Sweet Florist! Dirancang khusus untuk memberikan kesan mendalam, buket ini dirangkai dengan bunga-bunga pilihan, boneka wisuda, dan aksesoris pendukung seperti pita satin serta kartu ucapan manis.
+      </p>
+      <p>
+        Buket Wisuda kami tidak hanya cantik, tapi juga simbol penghargaan atas perjuangan dan keberhasilan seseorang. Sangat cocok diberikan kepada sahabat, pasangan, adik, atau siapa saja yang sedang merayakan hari kelulusannya.
+      </p>
+      <p>
+        Tersedia dalam berbagai warna dan ukuran, kamu juga bisa request nama dan fakultas penerima pada kartu ucapan, agar lebih personal dan berkesan.
+      </p>
+      
+
+    <h3>Spesifikasi Produk</h3>
+    <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <li>Isi: Bunga artificial premium + boneka wisuda (mini teddy atau custom)</li>
+        <li>Ukuran: ±70cm x 55cm</li>
+        <li>Warna tema: Navy, ungu, gold, pastel (bisa request)</li>
+        <li>Tambahan: Kartu ucapan + pita satin dekoratif</li>
+        <li>Kemasan: Kertas wrapping Korea dengan finishing elegan</li>
+    </ul>
+
+    <br>
+    <button onclick="tambahKeKeranjang()">Beli</button>
+  </main>
+
+  <footer>
+    <p>Kontak kami: sweetfloristbouqet@gmail.com | 0813-1391-4862 | Jl. Melong raya no 60 Bandung</p>
+  </footer>
+
+</body>
+</html>

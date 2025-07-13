@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - Buket Bunga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+    function tambahKeKeranjang() {
+      const produk = {
+        nama: "Money Buket",
+        harga: 850000,
+        gambar: "image/money buket.jpg",
+        jumlah: 1
+      };
+  
+
+      let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+  
+
+      const index = keranjang.findIndex(item => item.nama === produk.nama);
+      if (index !== -1) {
+        keranjang[index].jumlah += 1;
+      } else {
+        keranjang.push(produk);
+      }
+  
+
+      localStorage.setItem("keranjang", JSON.stringify(keranjang));
+  
+      alert("Produk telah ditambahkan ke keranjang!");
+    }
+  </script>
+<body>
+
+  <header>
+    <h1>Sweet Florist Bouquet</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="homeproduk.html">Produk</a>
+      <a href="keranjang.html">Keranjang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main class="detail-produk">
+    <img src="image/money buket.jpg" alt="Buket Bunga">
+    <h2>Money Buket</h2>
+    <p>Harga: Jasa Bahan Start Rp 85.000</p>
+
+    <p>
+        Ingin memberikan hadiah yang berkesan dan istimewa? <strong>Money Buket</strong> adalah pilihan sempurna! Buket ini dirangkai secara artistik dengan lembaran uang kertas asli yang dibentuk seperti kelopak bunga, dikombinasikan dengan bunga artificial, pita satin, dan wrapping kertas premium.
+      </p>
+      <p>
+        Cocok untuk berbagai momen spesial seperti ulang tahun, tunangan, lamaran, wisuda, atau sebagai kejutan romantis untuk orang tersayang. Money Buket tidak hanya menawan secara visual, tetapi juga bermakna dan tentu sangat disukai penerima!
+      </p>
+      <p>
+        Kamu bisa request jumlah uang, warna wrapping, dan tema sesuai keinginan. Setiap buket kami rangkai dengan rapi dan eksklusif, sehingga siap untuk diberikan tanpa perlu repot menghias ulang.
+      </p>
+      
+
+    <h3>Spesifikasi Produk</h3>
+    <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <li>Isi: Lembaran uang kertas (nominal sesuai request) + bunga artificial</li>
+        <li>Ukuran: ±60cm x 55cm (tergantung jumlah uang)</li>
+        <li>Nominal: Bisa request (Rp 100.000, Rp 200.000, Rp 500.000, dst.)</li>
+        <li>Warna wrapping: Bisa pilih (hitam, gold, navy, pastel, dll.)</li>
+        <li>Kemasan: Kertas wrapping premium + pita satin elegan</li>
+    </ul>
+
+    <br>
+    <button onclick="tambahKeKeranjang()">Beli</button>
+  </main>
+
+  <footer>
+    <p>Kontak kami: sweetfloristbouqet@gmail.com | 0813-1391-4762 | Jl. Melong raya No.60, Cimahi</p>
+  </footer>
+
+</body>
+</html>
